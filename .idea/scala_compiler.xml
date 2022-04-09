@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="Maven 1" modules="EasyAlert,api,application,common,controller,core,domain,easy-alert,infrastructure,query,starter" />
+    <profile name="Maven 1" modules="DDD-Alert,EasyAlert,api,application,common,controller,core,domain,easy-alert,infrastructure,query,starter" />
   </component>
 </project>
