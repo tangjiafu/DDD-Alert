@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.1.3.RELEASE</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.example</groupId>
+  <artifactId>easy-alert</artifactId>
+  <packaging>pom</packaging>
+  <version>release</version>
+  <modules>
+    <module>core</module>
+    <module>controller</module>
+    <module>starter</module>
+    <module>common</module>
+    <module>infrastructure</module>
+    <module>api</module>
+
+  </modules>
+
+  <properties>
+    <maven.compiler.source>8</maven.compiler.source>
+    <maven.compiler.target>8</maven.compiler.target>
+    <mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
+    <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
+    <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
+    <lombok.version>1.18.12</lombok.version>
+    <scala-library.version>2.11.8</scala-library.version>
+    <maven-scala-plugin.version>2.15.2</maven-scala-plugin.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala-library.version}</version>
+    </dependency>
+  </dependencies>
+
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.scala-tools</groupId>
+        <artifactId>maven-scala-plugin</artifactId>
+        <version>${maven-scala-plugin.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <recompileMode>incremental</recompileMode>
+          <scalaVersion>${scala-library.version}</scalaVersion>
+          <launchers>
+            <launcher>
+              <id>app</id>
+              <mainClass>com.staryea.scala.ScalaApplication</mainClass>
+              <args>
+                <arg>-deprecation</arg>
+              </args>
+              <jvmArgs>
+                <jvmArg>-Xms256m</jvmArg>
+                <jvmArg>-Xmx2048m</jvmArg>
+              </jvmArgs>
+            </launcher>
+          </launchers>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
