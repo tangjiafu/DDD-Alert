@@ -15,12 +15,13 @@
   <packaging>pom</packaging>
   <version>release</version>
   <modules>
+    <module>common</module>
     <module>core</module>
     <module>controller</module>
     <module>starter</module>
-    <module>common</module>
-    <module>infrastructure</module>
     <module>api</module>
+    <module>infrastructure</module>
+
 
   </modules>
 
@@ -41,6 +42,11 @@
       <artifactId>scala-library</artifactId>
       <version>${scala-library.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>${spring.boot.version}</version>
+    </dependency>
   </dependencies>
 
 
@@ -58,23 +64,6 @@
             </goals>
           </execution>
         </executions>
-        <configuration>
-          <recompileMode>incremental</recompileMode>
-          <scalaVersion>${scala-library.version}</scalaVersion>
-          <launchers>
-            <launcher>
-              <id>app</id>
-              <mainClass>com.staryea.scala.ScalaApplication</mainClass>
-              <args>
-                <arg>-deprecation</arg>
-              </args>
-              <jvmArgs>
-                <jvmArg>-Xms256m</jvmArg>
-                <jvmArg>-Xmx2048m</jvmArg>
-              </jvmArgs>
-            </launcher>
-          </launchers>
-        </configuration>
       </plugin>
     </plugins>
   </build>

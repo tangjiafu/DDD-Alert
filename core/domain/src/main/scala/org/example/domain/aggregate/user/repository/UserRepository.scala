@@ -1,5 +1,7 @@
 package org.example.domain.aggregate.user.repository
 
+import org.example.domain.aggregate.user.model.UserRoot
+
 /**
  * ${description}
  *
