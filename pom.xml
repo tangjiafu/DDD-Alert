@@ -16,13 +16,11 @@
   <version>release</version>
   <modules>
     <module>common</module>
-    <module>core</module>
-    <module>controller</module>
-    <module>starter</module>
+    <module>domain</module>
     <module>api</module>
     <module>infrastructure</module>
-
-
+    <module>interaction</module>
+    <module>starter</module>
   </modules>
 
   <properties>
@@ -32,39 +30,41 @@
     <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
     <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
     <lombok.version>1.18.12</lombok.version>
-    <scala-library.version>2.11.8</scala-library.version>
+    <scala.version>2.11.8</scala.version>
     <maven-scala-plugin.version>2.15.2</maven-scala-plugin.version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>${scala-library.version}</version>
+      <artifactId>scala-compiler</artifactId>
+      <version>${scala.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-reflect</artifactId>
+      <version>${scala.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
       <version>${spring.boot.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.20</version>
+    </dependency>
   </dependencies>
 
 
   <build>
-    <plugins>
-      <plugin>
-        <groupId>org.scala-tools</groupId>
-        <artifactId>maven-scala-plugin</artifactId>
-        <version>${maven-scala-plugin.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
   </build>
 </project>

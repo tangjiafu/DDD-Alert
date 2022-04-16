@@ -2,3 +2,10 @@
 
 /*/target
 /core/*/target
+/api/api.iml
+/common/common.iml
+/controller/controller.iml
+/domain/domain.iml
+/easy-alert.iml
+/infrastructure/infrastructure.iml
+/starter/starter.iml
