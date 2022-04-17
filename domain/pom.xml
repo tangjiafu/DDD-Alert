@@ -16,36 +16,18 @@
   </properties>
 
   <dependencies>
-
-
+    <dependency>
+      <groupId>org.example</groupId>
+      <artifactId>common</artifactId>
+      <version>release</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
       <plugin>
         <groupId>org.scala-tools</groupId>
         <artifactId>maven-scala-plugin</artifactId>
-        <version>${maven-scala-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>compile-scala</id>
-            <phase>process-resources</phase>
-            <goals>
-              <goal>add-source</goal>
-              <goal>compile</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>scala-compile-first</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>add-source</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
-
   </build>
-
 </project>

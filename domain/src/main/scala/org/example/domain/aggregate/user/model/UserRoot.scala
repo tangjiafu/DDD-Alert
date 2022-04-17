@@ -13,5 +13,10 @@ class UserRoot {
 
   @BeanProperty
   var id: Long = _
- 
+  @BeanProperty
+  var email: String = _
+  @BeanProperty
+  var name: String = _
+  @BeanProperty
+  var phone: String = _
 }

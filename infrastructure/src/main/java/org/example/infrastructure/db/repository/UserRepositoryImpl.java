@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import org.example.domain.aggregate.user.model.UserRoot;
 import org.example.domain.aggregate.user.repository.UserRepository;
 import org.example.infrastructure.db.mapper.UserMapper;
+import org.example.infrastructure.db.pojo.User;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,8 +17,11 @@ public class UserRepositoryImpl implements UserRepository {
   UserMapper userMapper;
 
   @Override
-  public Void save(UserRoot user) {
-    return null;
+  public long save(UserRoot userRoot) {
+    User user = new User();
+    user.from(userRoot);
+    userMapper.insert(user);
+    return 0;
   }
 
   @Override

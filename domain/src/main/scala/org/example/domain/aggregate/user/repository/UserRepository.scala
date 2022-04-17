@@ -10,7 +10,7 @@ import org.example.domain.aggregate.user.model.UserRoot
  * */
 trait UserRepository {
 
-  def save(user: UserRoot): Void
+  def save(user: UserRoot): Long
 
   def delete(): Boolean
 

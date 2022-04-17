@@ -26,12 +26,14 @@
   <properties>
     <maven.compiler.source>8</maven.compiler.source>
     <maven.compiler.target>8</maven.compiler.target>
+    <java.version>8</java.version>
     <mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
     <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
     <spring.boot.version>2.3.12.RELEASE</spring.boot.version>
     <lombok.version>1.18.12</lombok.version>
     <scala.version>2.11.8</scala.version>
     <maven-scala-plugin.version>2.15.2</maven-scala-plugin.version>
+    <CodeCacheSize>512m</CodeCacheSize>
   </properties>
 
   <dependencies>
@@ -64,7 +66,80 @@
     </dependency>
   </dependencies>
 
-
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+        <plugin>
+          <groupId>net.alchim31.maven</groupId>
+          <artifactId>scala-maven-plugin</artifactId>
+          <!-- 3.3.1 won't work with zinc; fails to find javac from java.home -->
+          <version>3.2.2</version>
+          <executions>
+            <execution>
+              <id>eclipse-add-source</id>
+              <goals>
+                <goal>add-source</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>scala-compile-first</id>
+              <goals>
+                <goal>compile</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>scala-test-compile-first</id>
+              <goals>
+                <goal>testCompile</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <scalaVersion>${scala.version}</scalaVersion>
+            <recompileMode>incremental</recompileMode>
+            <useZincServer>true</useZincServer>
+            <args>
+              <arg>-unchecked</arg>
+              <arg>-deprecation</arg>
+              <arg>-feature</arg>
+              <arg>-explaintypes</arg>
+              <arg>-Yno-adapted-args</arg>
+            </args>
+            <jvmArgs>
+              <jvmArg>-Xms1024m</jvmArg>
+              <jvmArg>-Xmx1024m</jvmArg>
+              <jvmArg>-XX:ReservedCodeCacheSize=${CodeCacheSize}</jvmArg>
+            </jvmArgs>
+            <javacArgs>
+              <javacArg>-source</javacArg>
+              <javacArg>${java.version}</javacArg>
+              <javacArg>-target</javacArg>
+              <javacArg>${java.version}</javacArg>
+              <javacArg>-Xlint:all,-serial,-path,-try</javacArg>
+            </javacArgs>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.7.0</version>
+          <configuration>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+            <skipMain>true</skipMain> <!-- skip compile -->
+            <skip>true</skip> <!-- skip testCompile -->
+          </configuration>
+        </plugin>
+
+      </plugins>
+
+
+    </pluginManagement>
+
   </build>
 </project>
