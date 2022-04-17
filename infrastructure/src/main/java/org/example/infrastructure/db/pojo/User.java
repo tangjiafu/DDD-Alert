@@ -1,5 +1,6 @@
 package org.example.infrastructure.db.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -24,7 +25,7 @@ import org.springframework.beans.BeanUtils;
 @TableName(value = "user")
 public class User {
 
-  @TableId
+  @TableId(type = IdType.AUTO)
   private Long id;
 
   private String name;

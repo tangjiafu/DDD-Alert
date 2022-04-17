@@ -16,12 +16,16 @@ public class UserRepositoryImpl implements UserRepository {
   @Resource
   UserMapper userMapper;
 
+  /**
+   * @param userRoot userRoot
+   * @return
+   */
   @Override
   public long save(UserRoot userRoot) {
     User user = new User();
     user.from(userRoot);
     userMapper.insert(user);
-    return 0;
+    return user.getId();
   }
 
   @Override

@@ -7,7 +7,15 @@ spring:
     username: root
     password: 123456
     url: jdbc:mysql://localhost:3306/alert
-  jpa:
-    hibernate:
-      ddl-auto: update
-    database: mysql
+# mybatis 配置内容
+mybatis-plus:
+  #config-location: classpath:mybatis-config.xml # 配置 MyBatis 配置文件路径
+  mapper-locations: classpath:mapper/*.xml # 配置 Mapper XML 地址
+  type-aliases-package: com.steven.springboot.datasource.model # 配置数据库实体包路径
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    lazy-loading-enabled: true
+    aggressive-lazy-loading: false
+    lazyLoadTriggerMethods:
+
