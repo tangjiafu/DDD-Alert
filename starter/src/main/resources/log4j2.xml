@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration status="warn" monitorInterval="5">
+
+
+  <!-- 日志处理 -->
+  <Appenders>
+    <console name="Console" target="SYSTEM_OUT">
+      <!--输出日志的格式-->
+      <PatternLayout pattern="%date{HH:mm:ss} [%thread] %-5level %logger{36} - %M-%L：%msg%n"/>
+      <!--控制台只输出level及其以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+      <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+    </console>
+
+    <!-- 这个就是自定义的Appender -->
+    <EsLogAppender name="EsLogAppender">
+      <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%-5p] {%F:%L} - %m%n"/>
+    </EsLogAppender>
+  </Appenders>
+
+
+  <Loggers>
+    <Root level="INFO">
+      <!-- 指定日志使用的处理器 -->
+      <AppenderRef ref="Console"/>
+      <AppenderRef ref="EsLogAppender"/>
+    </Root>
+
+  </Loggers>
+</configuration>

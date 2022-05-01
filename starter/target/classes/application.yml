@@ -14,8 +14,12 @@ mybatis-plus:
   type-aliases-package: com.steven.springboot.datasource.model # 配置数据库实体包路径
   configuration:
     map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     lazy-loading-enabled: true
     aggressive-lazy-loading: false
     lazyLoadTriggerMethods:
 
+logging:
+  config:  classpath:log4j2.xml
+  level:
+    root: INFO

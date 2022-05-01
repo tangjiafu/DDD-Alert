@@ -41,22 +41,17 @@
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-compiler</artifactId>
       <version>${scala.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.scala-lang</groupId>
-      <artifactId>scala-library</artifactId>
-      <version>${scala.version}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>scala-library</artifactId>
+          <groupId>org.scala-lang</groupId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-reflect</artifactId>
       <version>${scala.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-starter-web</artifactId>
-      <version>${spring.boot.version}</version>
     </dependency>
 
     <dependency>

@@ -12,7 +12,5 @@ trait UserRepository {
 
   def save(user: UserRoot): Long
 
-  def delete(): Boolean
-
-  def insert(): Long
+  def delete(email: String): Boolean
 }
