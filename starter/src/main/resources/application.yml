@@ -5,8 +5,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 123456
-    url: jdbc:mysql://localhost:3306/alert
+    password: root123456
+    url: jdbc:mysql://172.17.0.27:13306/ndi
 # mybatis 配置内容
 mybatis-plus:
   #config-location: classpath:mybatis-config.xml # 配置 MyBatis 配置文件路径
@@ -14,12 +14,12 @@ mybatis-plus:
   type-aliases-package: com.steven.springboot.datasource.model # 配置数据库实体包路径
   configuration:
     map-underscore-to-camel-case: true
-#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     lazy-loading-enabled: true
     aggressive-lazy-loading: false
     lazyLoadTriggerMethods:
 
 logging:
-  config:  classpath:log4j2.xml
+  config: classpath:log4j2.xml
   level:
     root: INFO

@@ -54,7 +54,7 @@ public class Plugin {
       String realBody = FreemarkUtil.resolve(StringUtils.join(name, header, url), url, param);
       rsp = OkHttpUtils.post(realUrl, headerTemp, realBody);
     }
-    log.info(rsp);
+//    log.info(rsp);
   }
 
 }

@@ -43,6 +43,6 @@ public class EsLogAppender extends AbstractAppender {
 
   @Override
   public void append(LogEvent logEvent) {
-    System.out.println(GsonUtil.toJson(logEvent));
+//    System.out.println(GsonUtil.toJson(logEvent));
   }
 }

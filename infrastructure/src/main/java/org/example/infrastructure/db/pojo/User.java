@@ -22,7 +22,7 @@ import org.springframework.beans.BeanUtils;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@TableName(value = "user")
+@TableName(value = "ddd_alert")
 public class User {
 
   @TableId(type = IdType.AUTO)
